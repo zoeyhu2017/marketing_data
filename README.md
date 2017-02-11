@@ -39,9 +39,35 @@ Therefore, standard deviation for the evaluation metrics are as follow:
 
 
 Click-through-probability on "Start free trial":	0.08		
-Probability of enrolling, given click:	0.20625	gross conversion	0.020230604
-Probability of payment, given enroll:	0.53	retention	0.054949012
-Probability of payment, given click	0.1093125	net conversion	0.015601545
+SD(gross conversion)=0.0202
+SD(retention)=0.0549
+SD(net conversion)=0.0156
+
+Decide how many pageviews you will need to power all your evaluation metrics?
+
+α=0.05 β=0.2
+calculator used http://www.evanmiller.org/ab-testing/sample-size.html
+
+For P(gross conversion)=0.20625, dmin= 0.01, the sample size of clicks per group is 25835, so the sample size of pageview needed for both groups is 25835/0.08*2=645875
+For P(retention)=0.53, dmin=0.01, the sample size of enrollments per group is 39087, so the sample size of pageview needed for both groups is 39115/0.08/0.20625*2=4741212
+For P(net conversion)=0.1093125, dmin=0.0075, the sample size of clicks per group is 27413, so the sample size of pageview needed for both groups is 27413/0.08*2=685325
+
+So, we will need 4,741,212 pageviews to power all three metrics.
+
+
+Duration and Exposure
+Unique cookies to view page per day:	40000
+
+We intend to expose 50% of the traffic to the experiment, which is pretty risky. However, since the experiment required a large number of pageviews compare to its daily pageview, we have to compromise to make sure the duration is not too long.
+With half of the traffic exposed to the experiment, the duration will be 4741212/20000=237 days. The duration is too long to be realistic. Therefore, we had to drop the retention as the evaulation metric. 
+
+Based on the rest metrics, we will need 685325 pageviews for the experiment. With 50% traffic exposed to the experiment, the duration will be  685325/(40000/2)=34.3 days. 
+
+Sanity Check on the invariant metrics: 
+
+
+
+
 
 
 
