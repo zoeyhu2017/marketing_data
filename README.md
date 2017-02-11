@@ -63,8 +63,32 @@ With half of the traffic exposed to the experiment, the duration will be 4741212
 
 Based on the rest metrics, we will need 685325 pageviews for the experiment. With 50% traffic exposed to the experiment, the duration will be  685325/(40000/2)=34.3 days. 
 
-Sanity Check on the invariant metrics: 
 
+Sanity Check on the invariant metrics: check whether the invariant metrics are randomly distributed in two groups.
+
+number of cookies--summary of the experiment data:
+ 
+ num_of_pageview(cont)=345543
+ num_of_pageview(exp)=344660
+ CI=95%
+ with a binomial distribution, SE=SQRT(0.5*0.5/(345543+344660)=0.0006
+                               M=1.96*0.0006=0.0012
+                               Lower bound=0.4988
+                               Upper bound=0.5012
+                               Pcont=0.5006
+Since Pcont is within the confidence interval, the metric number of cookies past the sanity check.
+
+number of clicks--summary of the experiment data:
+num_of_clicks(cont)=28378
+num_of_clicks(exp)=28325
+CI=95%
+with a binomial distribution, SE=SQRT(0.5*0.5/(28325+28378)=0.0021
+                               M=1.96*0.0021=0.0041
+                               Lower bound=0.4959
+                               Upper bound=0.5041
+                               Pcont=0.5005
+Since Pcont is within the confidence interval, the metric number of clicks past the sanity check as well.
+              
 
 
 
