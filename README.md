@@ -90,6 +90,50 @@ with a binomial distribution, SE=SQRT(0.5*0.5/(28325+28378)=0.0021
 Since Pcont is within the confidence interval, the metric number of clicks past the sanity check as well.
               
 
+Bonferroni correction: 
+
+For the evaluation metrics we have now: gross conversion and net conversion, using bonferroni correction is too conservative since they are highly coorelated and will change together. 
+
+Effect Size
+
+Starting from Nov.3, there is no more record of enrollment or payment, therefore, we will not sum the sample clicks or enrollments before Nov.3.
+
+For metric gross conversion, Ppool=(Xexp+Xcont)/(Ncont+Nexp)=(3785+3423)/(17293+17260)=0.208607067
+                             M=1.96*SQRT((1-0.208607067)*0.208607067)*(1/17293+1/17260))=0.0086
+                             d=Pexp-Pcont=-0.0206
+                             lower bound=-0.0291
+                             upper bound=-0.0120
+                             dmin=0.01
+So gross conversion is both statistically significant and practically significant,  but the effect is that the change decreases the gross conversion. 
+
+For metric net conversion, Ppool=(Xexp+Xcont)/(Ncont+Nexp)=(2033+1945)/(17293+17260)=0.1151
+                             M=1.96*SQRT((1-0.1151)*0.1151)*(1/17293+1/17260))=0.0067
+                             d=Pexp-Pcont=-0.0049
+                             lower bound=-0.0116
+                             upper bound=0.0019
+                             dmin=0.0075
+So net conversion is neither statistically significant nor practically significant. that's to say the experiment won't have impact on the net conversion.
+
+
+Sign test: to further test the result, we will look closer at the day-by-day data of the evaluation metrics.
+num of the total experiment date: 23 days(exclude days when there is no record for payment or enrollment)
+
+num of the positive change date for gross conversion: 4 days
+num of the positive change date for net conversion: 10 days
+
+with the calculator http://graphpad.com/quickcalcs/binomial1.cfm, we will calculate how likely the change happens randomly or by chance?
+
+for gross conversion, p value= 0.0026, so the change is statistically significant 
+for net conversion, p value=  0.6776, so the change is not statistically significant
+
+
+In conclusion, making the design change is not recommended for the goal of improving students' expectaion and course completion. It is likely to decrease the gross conversion and net conversion. 
+
+
+
+
+ 
+
 
 
 
